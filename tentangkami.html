@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klug - Tentang Kami</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Reuse your existing navigation styles */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #450d55, #423e86, #423d85, #4058a0, #3c7cc4, #3c8ed6);
+            z-index: 9000;    
+        }
+
+        .logo {
+            color: white;
+            font-size: 52px;
+            font-family: geon soft, sans-serif;
+            font-weight: normal;
+            text-decoration: none;
+        }
+
+        .logo::before {
+            content: '';
+            display: block;
+            width: 4%;
+            height: 2px;
+            background-color: white;
+            margin-top: 8px;
+            position: absolute;
+            left: 11%;
+        }
+
+        .logo::after {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 2px;
+            background-color: white;
+            margin-top: 0px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 55px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .search-bar {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            width: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 13px;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .register-btn {
+            background-color: #195395;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        /* Hero section styles */
+        .hero-about {
+            height: 100vh;
+            background-image: url('./img/tentangkami.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+        }
+
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(69, 13, 85, 0.5), rgba(60, 142, 214, 0));
+        }
+
+        .hero-title {
+   color: white;
+    font-size: 40px;
+    position: absolute; /* Menggunakan posisi absolut */
+    top: 90%; /* Posisikan di tengah vertikal */
+    left: 20%; /* Posisikan di tengah horizontal */
+    transform: translate(-50%, -50%); /* Geser kembali setengah dari ukuran elemen */
+    text-align: center; /* Memusatkan teks di dalam elemen */
+    font-weight: 50%;
+}
+
+        /* Profile section styles */
+        .profile-section {
+            padding: 90px 220px;
+            text-align: justify;
+        }
+
+        .section-heading {
+    font-size: 28px;
+    color: #000; /* Ubah warna teks menjadi hitam */
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+
+        .profile-text {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Vision Mission section styles */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 0px 220px;
+        }
+
+        .vm-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .vm-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .vm-content {
+            padding: 20px;
+        }
+
+        .vm-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vm-text {
+            color: #666;
+            line-height: 1.6;
+            text-align: justify;
+        }
+	
+	style>
+        /* Previous styles remain the same */
+
+        /* Articles section additional styles */
+        .articles-section {
+            padding: 0 80 40px;
+        }
+
+        .article-link {
+            text-decoration: none;
+        }
+
+        .more-articles {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .more-articles-btn {
+            display: inline-block;
+            padding: 12px 40px;
+            border: 2px solid #4a1259;
+            border-radius: 25px;
+            color: #4a1259;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .more-articles-btn:hover {
+            background: #4a1259;
+            color: white;
+        }
+	.articles-section h2 {
+    	margin-top: 210px; /* Tambahkan jarak atas */
+    	margin-bottom: 20px; /* Tambahkan jarak bawah */
+    	font-size: 24px; /* Sesuaikan ukuran font */
+   	 text-align: center; /* Pastikan teks rata tengah */
+    	color: #333; /* Sesuaikan warna */
+}
+
+        /* Contact section styles */
+        .contact-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+	
+	.divider {
+   	 border: none; /* Hilangkan border bawaan */
+   	 border-top: 1px solid rgba(0, 0, 0, 0.1); /* Garis samar */
+   	 margin: 0 auto 40px; /* Jarak bawah garis */
+   	 width: 80%; /* Lebar garis */
+}
+
+        .office-info {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .office-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .office-address {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .contact-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .location-btn {
+            background: linear-gradient(to right, #450d55, #423e86, #423d85, #4058a0, #3c7cc4, #3c8ed6);
+            color: white;
+        }
+
+        .message-btn {
+            border: 2px solid #4a1259;
+            color: #4a1259;
+        }
+
+        .location-btn:hover, .message-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer styles */
+        footer {
+            background: linear-gradient(to right, #450d55, #423e86, #423d85, #4058a0, #3c7cc4, #3c8ed6);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">klug</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tentangkami.html">Tentang Kami</a>
+            <a href="#">Layanan Kami</a>
+            <a href="#">Artikel</a>
+            <a href="hubungikami.html">Hubungi Kami</a>
+        </div>
+        <div class="search-section">
+            <input type="text" class="search-bar" placeholder="Ketik pencarian">
+            <a href="#" class="register-btn">DAFTAR ON-LINE</a>
+        </div>
+    </nav>
+
+    <section class="hero-about">
+        <h1 class="hero-title">TENTANG KAMI</h1>
+    </section>
+
+    <section class="profile-section">
+        <h2 class="section-heading">PROFIL</h2>
+        <p class="profile-text">
+            Didirikan pada tahun 2018, Ini membuktikan bahwa INAKLUG merupakan konsultan pendidikan internasional yang berpengalaman, terbesar, terpercaya dan juga memiliki jam terbang tinggi untuk melayani para anak-anak muda Indonesia untuk menuntut ilmu di berbagai negara maju dunia.
+        </p>
+    </section>
+
+    <section class="vision-mission">
+        <div class="vm-card">
+            <img src="img/visi.png" alt="Visi" class="vm-image">
+            <div class="vm-content">
+                <h3 class="vm-title">VISI</h3>
+                <p class="vm-text">
+                    Membangun Sumber Daya Indonesia yang mempunyai daya saing tinggi, tangguh secara internasional untuk menghadapi persaingan di era globalisasi serta membangun karakter pemimpin Indonesia masa depan yang tangguh, mandiri, dan profesional.
+                </p>
+            </div>
+        </div>
+        <div class="vm-card">
+            <img src="./img/misi.png" alt="Misi" class="vm-image">
+            <div class="vm-content">
+                <h3 class="vm-title">MISI</h3>
+                <p class="vm-text">
+                    Memfasilitasi siswa Indonesia untuk mengenyam pendidikan di berbagai perguruan tinggi di lebih dari 25 negara maju di dunia dengan layanan yang profesional.
+                    <br><br>
+                    Memberikan bantuan konsultasi terhadap siswa/i Indonesia dalam mempersiapkan studinya dari berbagai aspek, baik aspek sosial, budaya, maupun pendidikan.
+                </p>                
+            </div>
+        </div>
+	<div class="more-articles">
+            <a href="#" class="more-articles-btn">LAYANAN KAMI</a>
+        </div>
+
+    </section>
+
+     <section class="contact-section">
+	<hr class="divider">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="office-info">
+            <h3 class="office-title">KANTOR PUSAT</h3>
+            <p class="office-address">Gedung Jr. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+            <div class="contact-details">
+                <p>Phone : (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+                <p>Hotline: +6281519040071 / +62811998167</p>
+            </div>
+            <div class="button-group">
+                <a href="#" class="contact-btn location-btn">LOKASI KAMI</a>
+                <a href="#" class="contact-btn message-btn">KIRIM PESAN</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+
+</body>
+</html>

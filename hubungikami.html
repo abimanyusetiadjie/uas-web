@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Klug</title>
+    <div class="recaptcha-container">
+        <!-- Tambahkan elemen reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6Lc0-bgqAAAAAC2eOF3Ot0Zfs1OMhMcc0ZkYKYQU"></div>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            if (grecaptcha.getResponse() === "") {
+                event.preventDefault();
+                alert("Harap isi reCAPTCHA sebelum mengirim pesan.");
+            }
+        });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to right, 
+                rgba(74, 23, 68, 0.9) 0%,
+                rgba(43, 57, 144, 0.9) 40%,
+                rgba(30, 85, 190, 0.9) 70%,
+                rgba(65, 142, 255, 0.9) 100%
+            );
+            backdrop-filter: blur(5px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            color: white;
+            font-size: 36px; /* Ukuran font */
+            font-weight: bold;
+            text-decoration: none;
+            position: relative; /* Untuk memungkinkan penempatan garis */
+            display: inline-block;
+            padding: 0; /* Padding horizontal */
+            text-align: center;
+            line-height: 1; /* Mengatur jarak antara garis atas dan bawah */
+        }
+
+        .logo::before,
+        .logo::after {
+            content: "";
+            position: absolute;
+            height: 2px; /* Ketebalan garis */
+            background-color: white; /* Warna garis */
+        }
+
+        .logo::before {
+            top: 5px; /* Jarak garis atas */
+            left: 58%; /* Mulai dari tengah (sekitar huruf U) */
+            width: 53%; /* Panjang garis dari U hingga akhir G */
+            transform: translateX(-25%); /* Pusatkan */
+        }
+
+        .logo::after {
+            bottom: 1px; /* Jarak garis bawah */
+            left: 0; /* Mulai dari K */
+            width: 65%; /* Panjang garis dari awal K hingga akhir U */
+        }
+
+        .logo span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo span.l {
+            display: inline-block;
+            position: relative;
+            top: -10px; /* Panjangkan huruf 'l' ke atas */
+            font-size: 45px; /* Sedikit lebih besar untuk efek tinggi */
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .search-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara input dan tombol */
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    width: 250px; /* Lebar input */
+    height: 40px; /* Tinggi input */
+    padding-left: 40px; /* Memberi ruang untuk ikon kaca pembesar */
+    border-radius: 20px; /* Membuat bentuk oval */
+    border: none; /* Hilangkan border */
+    background: rgba(255, 255, 255, 0.2); /* Latar belakang transparan */
+    color: white; /* Teks putih */
+    font-size: 14px; /* Ukuran font */
+    outline: none; /* Hilangkan garis fokus */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+.search-input input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder transparan */
+}
+
+.search-input::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Garis kaca pembesar */
+    border-radius: 50%; /* Membuat lingkaran */
+}
+
+.search-input::after {
+    content: "";
+    position: absolute;
+    top: 58%; /* Letakkan sedikit di bawah lingkaran */
+    left: 30px; /* Tempatkan di sisi kanan lingkaran */
+    width: 12px; /* Panjang gagang kaca pembesar */
+    height: 2px; /* Ketebalan gagang */
+    background: rgba(255, 255, 255, 0.9); /* Warna garis kaca pembesar */
+    transform: rotate(45deg); /* Putar gagang */
+    transform-origin: top left; /* Titik poros rotasi */
+}
+
+.cta {
+    background:#195395; /* Warna biru */
+    color: white; /* Teks putih */
+    padding: 10px 25px; /* Padding tombol */
+    border-radius: 20px; /* Membuat tombol oval */
+    text-decoration: none;
+    font-size: 14px; /* Ukuran font */
+    font-weight: bold; /* Teks tebal */
+    border: none; /* Hilangkan border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Efek hover */
+}
+
+.cta:hover {
+    background: #1A255A; /* Warna lebih gelap saat hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar */
+    cursor: pointer;
+}
+
+
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(74, 23, 68, 0.8), rgba(43, 57, 144, 0.8)), url('/img/artikel1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-left: 4rem;
+            margin-top: 50px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Form Section */
+        .contact-form {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .form-title {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .message-field {
+            grid-column: 1 / -1;
+        }
+
+        .message-field textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn {
+            background: white;
+            color: #2B3990;
+            padding: 0.8rem 2.5rem;
+            border: 2px solid #2B3990;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #f8f9ff;
+        }
+
+        .recaptcha-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Location Section */
+        .location {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .location h2 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .office-info {
+            margin-bottom: 2rem;
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .office-info h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .office-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, 
+                rgba(74, 23, 68, 0.9) 0%,
+                rgba(43, 57, 144, 0.9) 40%,
+                rgba(30, 85, 190, 0.9) 70%,
+                rgba(65, 142, 255, 0.9) 100%
+            );
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">klug</a>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="tentangkami.html">Tentang Kami</a>
+            <a href="#">Layanan Kami</a>
+            <a href="#l">Artikel</a>
+            <a href="hubungikami.html">Hubungi Kami</a>
+        </nav>
+        <div class="search-container">
+            <div class="search-input">
+                <input type="text" placeholder="Ketik pencarian">
+            </div>
+            <a href="#" class="cta">DAFTAR ON-LINE</a>
+        </div>
+        
+        
+    </header>
+
+    <section class="hero">
+        <h1>HUBUNGI KAMI</h1>
+    </section>
+
+    <section class="contact-form">
+        <h2 class="form-title">KIRIM PESAN</h2>
+        <form>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nama*</label>
+                    <input type="text" placeholder="Nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label>E-Mail*</label>
+                    <input type="email" placeholder="Alamat E-mail Anda">
+                </div>
+                <div class="form-group">
+                    <label>Perusahaan / Organisasi</label>
+                    <input type="text" placeholder="Nama Perusahaan / Organisasi">
+                </div>
+                <div class="form-group">
+                    <label>Telepon</label>
+                    <input type="tel" placeholder="Nomor telepon Anda">
+                </div>
+                <div class="form-group message-field">
+                    <label>Isi Pesan*</label>
+                    <textarea placeholder="Isi pesan Anda"></textarea>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">KIRIM PESAN</button>
+                <div class="recaptcha-container">
+                    <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="location">
+        <h2>LOKASI KAMI</h2>
+        <div class="office-info">
+            <h3>KANTOR PUSAT</h3>
+            <p>Gedung lr. H. M. Suseno - JL R.P.Soeroso No.6, Menteng, Jakarta Pusat</p>
+            <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+            <p>Hotline: +6281519040071 / +628119598167</p>
+        </div>
+        <div class="office-info">
+            <h3>KANTOR CABANG</h3>
+            <p>Gedung lr. H. M. Suseno - JL R.P.Soeroso No.6, Menteng, Jakarta Pusat</p>
+            <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+            <p>Hotline: +6281519040071 / +628119598167</p>
+        </div>
+        <div class="recaptcha-container">
+            <div class="g-recaptcha" data-sitekey="6Lc0-bgqAAAAAC2eOF3Ot0Zfs1OMhMcc0ZkYKYQU"></div>
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+</body>
+</html>
